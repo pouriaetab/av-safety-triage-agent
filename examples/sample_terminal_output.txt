@@ -1,0 +1,68 @@
+Generating 5 synthetic safety events...
+Running in MOCK mode -- no API calls, no tokens spent.
+
+Investigating EVT-7f4f5386 (disengagement @ unprotected_left_turn)...
+    [tool call] get_perception_log({'event_id': 'EVT-7f4f5386'})
+    [tool call] get_planner_log({'event_id': 'EVT-7f4f5386'})
+    [tool call] get_vehicle_state({'event_id': 'EVT-7f4f5386'})
+    [tool call] get_weather({'event_id': 'EVT-7f4f5386'})
+    [tool call] search_lessons({'keywords': 'glare'})
+    [agent reasoning] {"event_id": "EVT-7f4f5386", "severity": "moderate", "confidence": 0.6, "root_cause": "Transient perception confidence dip led to a precautionary planner correction.", "evidence": ["Perception log sho
+    -> severity=moderate  human_review=False
+
+Investigating EVT-9d94a977 (near_miss @ urban_intersection)...
+    [tool call] get_perception_log({'event_id': 'EVT-9d94a977'})
+    [tool call] get_planner_log({'event_id': 'EVT-9d94a977'})
+    [tool call] get_vehicle_state({'event_id': 'EVT-9d94a977'})
+    [tool call] get_weather({'event_id': 'EVT-9d94a977'})
+    [tool call] search_lessons({'keywords': 'rain'})
+    [agent reasoning] {"event_id": "EVT-9d94a977", "severity": "severe", "confidence": 0.6, "root_cause": "Detection degraded under adverse conditions, reducing safety margin close to threshold.", "evidence": ["Perception/
+    -> severity=severe  human_review=True
+
+Investigating EVT-b6c09a76 (sensor_fault @ highway_merge)...
+    [tool call] get_perception_log({'event_id': 'EVT-b6c09a76'})
+    [tool call] get_planner_log({'event_id': 'EVT-b6c09a76'})
+    [tool call] get_vehicle_state({'event_id': 'EVT-b6c09a76'})
+    [tool call] get_weather({'event_id': 'EVT-b6c09a76'})
+    [tool call] search_lessons({'keywords': 'fault'})
+    [agent reasoning] {"event_id": "EVT-b6c09a76", "severity": "minor", "confidence": 0.6, "root_cause": "Transient sensor or classification issue with no resulting hazard.", "evidence": ["Vehicle state shows no maneuver o
+    -> severity=minor  human_review=False
+
+Investigating EVT-88c29a26 (disengagement @ residential)...
+    [tool call] get_perception_log({'event_id': 'EVT-88c29a26'})
+    [tool call] get_planner_log({'event_id': 'EVT-88c29a26'})
+    [tool call] get_vehicle_state({'event_id': 'EVT-88c29a26'})
+    [tool call] get_weather({'event_id': 'EVT-88c29a26'})
+    [tool call] search_lessons({'keywords': 'fault'})
+    [agent reasoning] {"event_id": "EVT-88c29a26", "severity": "minor", "confidence": 0.6, "root_cause": "Transient sensor or classification issue with no resulting hazard.", "evidence": ["Vehicle state shows no maneuver o
+    -> severity=minor  human_review=False
+
+Investigating EVT-148cbefc (near_miss @ highway_merge)...
+    [tool call] get_perception_log({'event_id': 'EVT-148cbefc'})
+    [tool call] get_planner_log({'event_id': 'EVT-148cbefc'})
+    [tool call] get_vehicle_state({'event_id': 'EVT-148cbefc'})
+    [tool call] get_weather({'event_id': 'EVT-148cbefc'})
+    [tool call] search_lessons({'keywords': 'fault'})
+    [agent reasoning] {"event_id": "EVT-148cbefc", "severity": "severe", "confidence": 0.6, "root_cause": "Detection degraded under adverse conditions, reducing safety margin close to threshold.", "evidence": ["Perception/
+    -> severity=severe  human_review=True
+
+
+=== Summary ===
+event_id         type             severity   review? 
+EVT-7f4f5386     disengagement    moderate   False   
+EVT-9d94a977     near_miss        severe     True    
+EVT-b6c09a76     sensor_fault     minor      False   
+EVT-88c29a26     disengagement    minor      False   
+EVT-148cbefc     near_miss        severe     True    
+
+=== Scoring vs. hidden ground truth ===
+EVT-7f4f5386     predicted=moderate   truth=moderate    MATCH
+EVT-9d94a977     predicted=severe     truth=severe      MATCH
+EVT-b6c09a76     predicted=minor      truth=minor       MATCH
+EVT-88c29a26     predicted=minor      truth=minor       MATCH
+EVT-148cbefc     predicted=severe     truth=severe      MATCH
+
+5/5 exact matches.
+
+Reports written to: /home/claude/av-safety-triage-agent/reports
+Lessons log: /home/claude/av-safety-triage-agent/lessons.md

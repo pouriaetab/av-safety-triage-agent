@@ -1,0 +1,7 @@
+.env
+__pycache__/
+*.pyc
+data/events.json
+data/logs/
+reports/
+lessons.md

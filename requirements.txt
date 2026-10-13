@@ -1,0 +1,6 @@
+# Pinned below v1.0: Anthropic's v1.0 SDK (Aug 2026) replaced the httpx
+# library with a new "httpx2" package, which currently has a decompression
+# bug on some environments (TypeError: process() takes no keyword arguments).
+# Pinning to the last pre-1.0 release avoids httpx2 entirely and is fully
+# compatible with everything this repo uses.
+anthropic>=0.40.0,<1.0.0
